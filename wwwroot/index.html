@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Monitor de Moedas</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px;
+        }
+        h1 {
+            color: #4caf50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            padding: 12px 20px;
+            background-color: #1e1e1e;
+            border-radius: 6px;
+            max-width: 450px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .moeda {
+            font-weight: bold;
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Olá, {{Name}}!</h1>
+    <p>Seja bem-vindo ao seu monitor de moedas:</p>
+    
+    <ul>
+        <li><span class='moeda'>🇧🇷 Real (BRL):</span> R$ 1,00 (Base)</li>
+        <li><span class='moeda'>🇺🇸 Dólar (USD):</span> R$ {{Dolar}}</li>
+        <li><span class='moeda'>🇪🇺 Euro (EUR):</span> R$ {{Euro}}</li>
+        <li><span class='moeda'>🇬🇧 Libra Esterlina (GBP):</span> R$ {{Libra}}</li>
+        <li><span class='moeda'>🇯🇵 Iene Japonês (JPY):</span> R$ {{Iene}}</li>
+        <li><span class='moeda'>🇨🇳 Yuan Chinês (CNY):</span> R$ {{Yuan}}</li>
+    </ul>
+</body>
+</html>
