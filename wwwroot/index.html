@@ -2,20 +2,75 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <title>Monitor de Moedas</title>
+    <title>Casa da Moeda</title>
     <style>
         body {
             background-color: #121212;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 40px;
+            padding: flex;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        h1 {
+
+        .titulo-projeto {
+            color: #4caf50;
+            font-size: 5rem;
+            margin-top: 1px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .menu-navegacao {
+            margin-bottom: 30px;
+            font-size: 2.4rem;
+            font-weight: bold;
+        }
+
+        .menu-link {
+            color: #aaaaaa;
+            cursor: pointer;
+            padding: 5px 15px;
+            transition: color 0.2s;
+        }
+
+        .menu-link:hover {
             color: #4caf50;
         }
+
+        .divisor {
+            color: #444444;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .aba-conteudo {
+            display: none;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        #tab-moedas:checked ~ .menu-navegacao [for="tab-moedas"],
+        #tab-sobre:checked ~ .menu-navegacao [for="tab-sobre"] {
+            color: #4caf50;
+            border-bottom: 2px solid #4caf50;
+        }
+
+        #tab-moedas:checked ~ #conteudo-moedas {
+            display: block;
+        }
+
+        #tab-sobre:checked ~ #conteudo-sobre {
+            display: block;
+        }
+
         ul {
             list-style-type: none;
             padding: 0;
+            width: 100%;
         }
         li {
             font-size: 1.2rem;
@@ -23,26 +78,54 @@
             padding: 12px 20px;
             background-color: #1e1e1e;
             border-radius: 6px;
-            max-width: 450px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         .moeda {
             font-weight: bold;
             color: #4caf50;
         }
+
+        .texto-sobre {
+            background-color: #1e1e1e;
+            padding: 25px;
+            border-radius: 6px;
+            line-height: 1.6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
-    <h1>Olá, {{Name}}!</h1>
-    <p>Seja bem-vindo ao seu monitor de moedas:</p>
-    
-    <ul>
-        <li><span class='moeda'>🇧🇷 Real (BRL):</span> R$ 1,00 (Base)</li>
-        <li><span class='moeda'>🇺🇸 Dólar (USD):</span> R$ {{Dolar}}</li>
-        <li><span class='moeda'>🇪🇺 Euro (EUR):</span> R$ {{Euro}}</li>
-        <li><span class='moeda'>🇬🇧 Libra Esterlina (GBP):</span> R$ {{Libra}}</li>
-        <li><span class='moeda'>🇯🇵 Iene Japonês (JPY):</span> R$ {{Iene}}</li>
-        <li><span class='moeda'>🇨🇳 Yuan Chinês (CNY):</span> R$ {{Yuan}}</li>
-    </ul>
+
+    <input type="radio" id="tab-moedas" name="navegacao" checked>
+    <input type="radio" id="tab-sobre" name="navegacao">
+
+    <h1 class="titulo-projeto">Casa da moeda</h1>
+
+    <div class="menu-navegacao">
+        <label for="tab-moedas" class="menu-link">Moedas</label>
+        <span class="divisor">|</span>
+        <label for="tab-sobre" class="menu-link">Sobre</label>
+    </div>
+
+    <div id="conteudo-moedas" class="aba-conteudo">
+        <p style="text-align: center; color: #aaa;">Veja abaixo as cotações atuais:</p>
+        <ul>
+            <li><span class='moeda'>Real (BRL):</span> R$ 1,00</li>
+            <li><span class='moeda'>Dólar (USD):</span> R$ {{Dolar}}</li>
+            <li><span class='moeda'>Euro (EUR):</span> R$ {{Euro}}</li>
+            <li><span class='moeda'>Libra Esterlina (GBP):</span> R$ {{Libra}}</li>
+            <li><span class='moeda'>Iene Japonês (JPY):</span> R$ {{Iene}}</li>
+            <li><span class='moeda'>Yuan Chinês (CNY):</span> R$ {{Yuan}}</li>
+        </ul>
+    </div>
+
+    <div id="conteudo-sobre" class="aba-conteudo">
+        <div class="texto-sobre">
+            <h3 style="margin-top: 0; color: #4caf50;">Sobre o Monitor</h3>
+            <p>Este é um projeto pessoal e simplificado voltado para monitoramento ágil de moedas estrangeiras em relação ao Real (BRL).</p>
+            <p>Desenvolvido de forma genérica em C# utilizando Minimal APIs do ASP.NET Core e estilizado puramente com HTML5/CSS3.</p>
+        </div>
+    </div>
+
 </body>
 </html>

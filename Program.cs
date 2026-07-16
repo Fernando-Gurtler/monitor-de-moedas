@@ -3,8 +3,6 @@ using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-var name = "Fernando";
-
 app.MapGet("/", async () => 
 {
     using var client = new HttpClient();
@@ -34,7 +32,6 @@ app.MapGet("/", async () =>
     string htmlTemplate = await File.ReadAllTextAsync("wwwroot/index.html");
 
     string htmlFinal = htmlTemplate
-        .Replace("{{Name}}", name)
         .Replace("{{Dolar}}", dolar)
         .Replace("{{Euro}}", euro)
         .Replace("{{Libra}}", libra)
